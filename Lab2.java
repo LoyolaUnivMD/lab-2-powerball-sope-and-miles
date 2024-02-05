@@ -27,14 +27,27 @@ public class Main {
       String[] nameParts = fullName.split(" ");
       //Saves the first name
       String firstName = nameParts[0];
+    System.out.println("How much would you like to bet: ");
+      int bet = scanner.nextInt();
+      System.out.println("Great "+ firstName +" is betting "+ "$"+bet);
       //Outputs the ticket to the user
+
+
       System.out.println("Here is your ticket: ");
+      int[] Winningnum =  {03, 05, 16, 58, 59, 11};
+      double winnings = 0;
+      double prize = 0;
       //For loop that generates 10 tickets
       for (int i = 0; i < 10; i++){
         //For loop that generates 6 random numbers
         for (int j = 0; j < 6; j++){
           //Outputs the random numbers
-          System.out.print(ftm.format(rand.nextInt(99)) + " ");
+          int lotterynums = rand.nextInt(99);
+          System.out.print(ftm.format(lotterynums)+ " ");
+          if (lotterynums == Winningnum[j]){
+          winnings = Math.pow(bet,1.75);
+          prize = winnings;
+            }
         }
         System.out.println();
       } 
@@ -43,7 +56,8 @@ public class Main {
       //Outputs a good luck message to the user
       System.out.println("Good luck " + firstName + "!");
       //Outputs the jackpot amount
-      System.out.println("Estimated jackpot: \n $225,938,745");
+       System.out.println("-----------------");
+      System.out.println("Your winnings are $" + prize);
       System.out.println("-----------------");
 
     }
