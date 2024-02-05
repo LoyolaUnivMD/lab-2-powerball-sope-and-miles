@@ -19,7 +19,7 @@ public class Main {
     //Declares variables
     DecimalFormat ftm = new DecimalFormat("#00");
     //Declares scanner variable
-    try (Scanner scanner = new Scanner(System.in)){
+      Scanner scanner = new Scanner(System.in);
       System.out.println("What is your name: ");
       //Saves the users name
       String fullName = scanner.nextLine();
@@ -34,7 +34,8 @@ public class Main {
 
 
       System.out.println("Here is your ticket: ");
-      int[] Winningnum =  {03, 05, 16, 58, 59, 11};
+ 
+      int[] Winningnum =  {3, 5, 16, 58, 59, 11};
       double winnings = 0;
       double prize = 0;
       //For loop that generates 10 tickets
@@ -44,10 +45,12 @@ public class Main {
           //Outputs the random numbers
           int lotterynums = rand.nextInt(99);
           System.out.print(ftm.format(lotterynums)+ " ");
-          if (lotterynums == Winningnum[j]){
-          winnings = Math.pow(bet,1.75);
-          prize = winnings;
+          for (int k = 0; k < Winningnum.length; k++) {
+            if (ftm.format(lotterynums).equals(ftm.format(Winningnum[k]))){
+            winnings = Math.pow(bet,1.75);
+            prize += winnings;
             }
+          }
         }
         System.out.println();
       } 
@@ -62,4 +65,3 @@ public class Main {
 
     }
   }
-}
